@@ -1,0 +1,15 @@
+
+stages:
+  - build_image
+job_build_xinhua-web-pc:
+    image: registry.xhszjs.com/library/docker:latest
+    services:
+      - docker:dind
+    stage: build_image
+    script:
+     - export DOCKER_HOST="tcp://localhost:2375"
+     - vertag="${CI_COMMIT_REF_NAME}-"`date "+%Y%m%d%H%M%S"` 
+     - docker build . -t registry.xhszjs.com/credit-en/xinhua-web-pc:${vertag}
+     - docker login registry.xhszjs.com --password="Credit20190214" --username="a_xy_credit_en_gitlab"
+     - docker push registry.xhszjs.com/credit-en/xinhua-web-pc:${vertag}
+     - echo "完成打包：registry.xhszjs.com/credit-en/xinhua-web-pc:${vertag} "
