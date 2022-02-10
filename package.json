@@ -30,7 +30,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "md5": "^2.2.1",
-    "node-sass": "^4.7.2",
+    "node-sass": "^7.0.0",
     "open-browser-webpack-plugin": "^0.0.5",
     "progress-bar-webpack-plugin": "^1.10.0",
     "qiniu-js": "^2.4.0",
